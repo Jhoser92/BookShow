@@ -12,18 +12,17 @@ public class Book {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String title, genre, publisher;
-	private int pubYear, isbn;
+	private int pubYear;
 	
 	public Book() {
 		super();
 	}
 
-	public Book(String title, String genre, String publisher, int pubYear, int isbn) {
+	public Book(String title, String genre, String publisher, int pubYear) {
 		this.title = title;
 		this.genre = genre;
 		this.publisher = publisher;
 		this.pubYear = pubYear;
-		this.isbn = isbn;
 	}
 
 	public Long getId() {
@@ -64,16 +63,6 @@ public class Book {
 
 	public void setPubYear(int pubYear) {
 		this.pubYear = pubYear;
-	}
-
-	public int getIsbn() {
-		return isbn;
-	}
-
-	public void setIsbn(int isbn) {
-		this.isbn = isbn;
-	}
+	}	
 	
-	
-
 }
