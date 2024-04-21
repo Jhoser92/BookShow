@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.jsBinary.BookShow.entity.Author;
 import com.jsBinary.BookShow.entity.Book;
 import com.jsBinary.BookShow.service.BookService;
 
