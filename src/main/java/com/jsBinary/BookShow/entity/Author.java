@@ -2,6 +2,9 @@ package com.jsBinary.BookShow.entity;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -10,6 +13,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 
 @Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Author {
 	
 	@Id
@@ -17,6 +21,7 @@ public class Author {
 	private Long authorId;
 	private String firstName, lastName;
 	@OneToMany(cascade = CascadeType.ALL,mappedBy = "author")
+	@JsonIgnore
 	private List<Book> books;
 	
 	public Author() {
