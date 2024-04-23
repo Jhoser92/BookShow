@@ -12,8 +12,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.jsBinary.BookShow.entity.Author;
 import com.jsBinary.BookShow.entity.Book;
+import com.jsBinary.BookShow.entity.User;
 import com.jsBinary.BookShow.repository.AuthorRepository;
 import com.jsBinary.BookShow.repository.BookRepository;
+import com.jsBinary.BookShow.repository.UserRepository;
 
 @SpringBootApplication
 public class BookShowApplication implements CommandLineRunner {
@@ -22,6 +24,9 @@ public class BookShowApplication implements CommandLineRunner {
 	private BookRepository bookRepository;
 	@Autowired
 	private AuthorRepository authorRepository;
+	
+	@Autowired
+	private UserRepository userRepository;
 	
 	private static final Logger logger = LoggerFactory.getLogger(BookShowApplication.class);
 
@@ -47,7 +52,10 @@ public class BookShowApplication implements CommandLineRunner {
 		bookRepository.saveAll(books);
 		// Fetch all books and log to console
 		bookRepository.findAll().forEach(book -> logger.info(book.getTitle() + " " + book.getGenre()));
-		
+		// Username: user, password: userPass
+		userRepository.save(new User("user", "$2y$10$dc3e3saiBRuwAmihOB0cWe8cI./MVgKIrdq9uCukCnRXYoNgYR1e6", "USER"));
+		// Username: admin, password: adminPass
+		userRepository.save(new User("admin", "$2y$10$VKlPOmlBxacyOtoGuASJuu6F0E4Gf/VfiWsVZSHlr3xHzjn9DQ68W", "ADMIN"));
 	}
 
 }
