@@ -22,6 +22,7 @@ public class BookShowApplication implements CommandLineRunner {
 	
 	@Autowired
 	private BookRepository bookRepository;
+	
 	@Autowired
 	private AuthorRepository authorRepository;
 	

@@ -30,10 +30,6 @@ public class SecurityConfig {
 							.requestMatchers(HttpMethod.POST, "/api/v1/book/*", "/api/v1/author/*").hasRole("ADMIN")
 							.requestMatchers(HttpMethod.DELETE, "/api/v1/book/*", "/api/v1/author/*").hasRole("ADMIN")
 							.requestMatchers(HttpMethod.PUT, "/api/v1/book/*", "/api/v1/author/*").hasRole("ADMIN")
-//							.requestMatchers(HttpMethod.GET, "/api/v1/author/*").hasAnyRole("ADMIN", "USER")
-//							.requestMatchers(HttpMethod.POST, "/api/v1/author/*").hasRole("ADMIN")
-//							.requestMatchers(HttpMethod.DELETE, "/api/v1/author/*").hasRole("ADMIN")
-//							.requestMatchers(HttpMethod.PUT, "/api/v1/author/*").hasRole("ADMIN")
 							.anyRequest().authenticated();
 						})
 				.httpBasic(Customizer.withDefaults())
